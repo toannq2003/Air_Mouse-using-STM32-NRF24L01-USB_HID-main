@@ -60,6 +60,8 @@ void calculator_offset_error(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t TxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA};
+
 uint8_t accel[6];
 uint8_t gyro[6];
 
