@@ -62,8 +62,6 @@ void calculator_offset_error(void);
 /* USER CODE BEGIN 0 */
 uint8_t accel[6];
 uint8_t gyro[6];
-uint8_t TxAddress[] = {0xEE,0xDD,0xCC,0xBB,0xAA};
-uint8_t Txsample[32] = "I dont know either";
 
 int16_t gyro_raw[16];   // gyro_raw[0] is gyro_y_raw, gyro_raw[1] is gyro_z_raw
 uint8_t chuottrai[32];
@@ -158,14 +156,7 @@ int main(void)
 	gyro_raw[1] = ((int16_t)(gyro[4] << 8 | gyro[5]) - gyro_offset[2]);    //gyro_z_raw
 	
 
-	// for testing data transmit
-	/*
-	if (nrf24_Transmit(Txsample) == 1)
-	{
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
-	}
-	HAL_Delay(100);
-	*/
+	
 	if (nrf24_Transmit((uint8_t*)gyro_raw)== 1) {
 	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
 	count++;
