@@ -152,7 +152,7 @@ int main(void)
 		  HAL_Delay(50);
 		  flag = 0;
 	}
-	HAL_I2C_Mem_Read(&hi2c1, MPU6050_ADDR, ACCEL_XOUT_H_REG, 1, gyro, 6, 1000);
+	HAL_I2C_Mem_Read(&hi2c1, MPU6050_ADDR, GYRO_XOUT_H_REG, 1, gyro, 6, 1000);
 		
 	gyro_raw[0] = ((int16_t)(gyro[2] << 8 | gyro[3]) - gyro_offset[1]);    //gyro_y_raw
 	gyro_raw[1] = ((int16_t)(gyro[4] << 8 | gyro[5]) - gyro_offset[2]);    //gyro_z_raw
